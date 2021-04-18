@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudoku Solver | Submit sudoku puzzles | Solve sudoku puzzles</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="https://i.pinimg.com/originals/fa/f0/6b/faf06b17944551850baee437c771d6a4.png">
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+</head>
+<body>
+    <header>
+        <div>
+            <h1>Sudoku</h1>
+        </div>
+        <div>
+            <lottie-player src="https://assets3.lottiefiles.com/packages/lf20_xudbbfnj.json"  background="transparent" loop speed="1" autoplay "  
+        </div>
+        
+    </header>
+    <section id="main" class="main">
+        <div id="board" class="board"></div>
+        <div id="info" class="info">
+            <div>
+                <button id="submit" class="submitButton">Submit Solution</button>
+            </div>
+            <div>
+                <textarea placeholder="Have a puzzle? Paste your puzzle here, make sure the unknown numbers are represented by zero" id="question" class="question"></textarea>
+                <button id="submitQuestion" class="questionButton">Submit Puzzle</button>
+            </div>
+            <div>
+                <button id="solver" class="solverButton">Auto Solve</button>
+            </div>
+        </div>
+    </section>
+    <div class="celebration" id="celebration">
+        <div>
+            <lottie-player src="https://assets10.lottiefiles.com/packages/lf20_ppwu5qi1.json"  background="transparent"  speed="1"     loop autoplay></lottie-player>
+        </div>
+        <h1>Well Played !!!</h1>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
