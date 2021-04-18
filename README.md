@@ -22,8 +22,9 @@ Sudoku is an algorithmic project, which is built using backtracking.
  
  
 ## Screenshots
-![sudoku 1](https://user-images.githubusercontent.com/39058941/115153972-2f0f4300-a096-11eb-93f1-eb8d0d79eec2.png)
-![sudoku 2](https://user-images.githubusercontent.com/39058941/115153971-2dde1600-a096-11eb-89b9-1c5d1e413fbd.png)
+![sudoku 1](https://user-images.githubusercontent.com/39058941/115154017-68e04980-a096-11eb-8c0c-820652ed499e.png)
+![sudoku 2](https://user-images.githubusercontent.com/39058941/115154020-6a117680-a096-11eb-9b54-d7115a0eaf51.png)
+
 
 
  
