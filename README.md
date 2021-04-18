@@ -6,6 +6,7 @@
 #### Clone the repo to your local system and run the index.html file, you should be good to go.
 
 
+[Demo](https://sudoku-solver-animated.netlify.app/)
 
 ### Features
 * User can solve a puzzle
