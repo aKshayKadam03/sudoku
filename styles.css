@@ -106,6 +106,13 @@ button {
   background-color: rgb(248, 12, 12);
 }
 
+.resetButton {
+  background-color: rgb(30, 3, 65);
+}
+.questionBlock {
+  display: none;
+}
+
 .question {
   font-size: 21px;
   margin: 10px;

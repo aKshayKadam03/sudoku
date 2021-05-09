@@ -1,5 +1,5 @@
 let board = document.getElementById("board");
-let arr = [
+let backupPlan = [
   [0, 4, 0, 0, 0, 0, 1, 7, 9],
   [0, 0, 2, 0, 0, 8, 0, 5, 4],
   [0, 0, 6, 0, 0, 5, 0, 0, 8],
@@ -10,10 +10,21 @@ let arr = [
   [5, 7, 0, 1, 0, 0, 2, 0, 0],
   [9, 2, 8, 0, 0, 0, 0, 6, 0],
 ];
+let arr;
+let backup;
+function getSudokuPuzzle() {
+  fetch("https://sugoku.herokuapp.com/board?difficulty=random")
+    .then((res) => res.json())
+    .then((data) => setState(data.board))
+    .catch((err) => setState(backupPlan));
+}
+getSudokuPuzzle();
 
-let backup = JSON.parse(JSON.stringify(arr));
-
-boardCreation(arr);
+function setState(data) {
+  arr = data;
+  boardCreation(arr);
+  backup = JSON.parse(JSON.stringify(arr));
+}
 
 let submitButton = document.getElementById("submit");
 
@@ -22,7 +33,17 @@ submitButton.addEventListener("click", solveChecker);
 let submitQuestion = document.getElementById("submitQuestion");
 submitQuestion.addEventListener("click", questionSubmitHandler);
 
+let resetButton = document.getElementById("reset");
+
+resetButton.addEventListener("click", resetBoard);
+
 //------------------------------  modules ---------------------------------
+function resetBoard() {
+  fetch("https://sugoku.herokuapp.com/board?difficulty=random")
+    .then((res) => res.json())
+    .then((data) => boardManipulation(data.board))
+    .catch((err) => boardManipulation(backupPlan));
+}
 
 //initial Board creation
 function boardCreation(arr) {
@@ -54,11 +75,18 @@ function onChangeHandler(e) {
 }
 
 //display new input on board
-
 function questionSubmitHandler() {
   arr = inputHandler();
   backup = [...arr];
-  boardManipulation(arr);
+  if (arr.length === 9) {
+    if (arr[0].length === 9) {
+      boardManipulation(arr);
+    } else {
+      alert("Please input a valid array");
+    }
+  } else {
+    alert("Please input a valid array");
+  }
 }
 
 function boardManipulation(arr) {
@@ -115,9 +143,10 @@ function solveChecker() {
     }
 
     if (Object.keys(objOne).length !== 9 || Object.keys(objTwo).length !== 9) {
-      return alert("Nice try!!");
+      return alert("Aww!! Try Again");
     }
   }
+
   return successCelebrations();
 }
 
@@ -174,9 +203,9 @@ function sudokuSolver() {
     }
     return false;
   }
-
+  // console.table(arr);
   if (sudoku(0)) {
-    boardManipulation(arr);
+    return boardManipulation(arr);
   } else {
     alert("there is no solution for this puzzle");
   }
@@ -188,5 +217,5 @@ function successCelebrations() {
   celebrations.style.display = "inline";
   setTimeout(() => {
     celebrations.style.display = "none";
-  }, 3000);
+  }, 2000);
 }
