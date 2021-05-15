@@ -1,3 +1,12 @@
+document.getElementById("question").placeholder = `0 4 0 0 0 0 1 7 9
+0 0 2 0 0 8 0 5 4
+0 0 6 0 0 5 0 0 8
+0 8 0 0 7 0 9 1 0
+0 5 0 0 9 0 0 3 0
+0 1 9 0 6 0 0 4 0
+3 0 0 4 0 0 7 0 0
+5 7 0 1 0 0 2 0 0
+9 2 8 0 0 0 0 6 0`;
 let board = document.getElementById("board");
 let backupPlan = [
   [0, 4, 0, 0, 0, 0, 1, 7, 9],
@@ -89,15 +98,16 @@ function questionSubmitHandler() {
   }
 }
 
-function boardManipulation(arr) {
-  for (let i = 0; i < arr.length; i++) {
-    for (let j = 0; j < arr[i].length; j++) {
+function boardManipulation(array) {
+  arr = array;
+  for (let i = 0; i < array.length; i++) {
+    for (let j = 0; j < array[i].length; j++) {
       let key = [i, j];
       let input = document.getElementById(key);
       input.removeAttribute("disabled");
-      input.value = arr[i][j];
-      if (arr[i][j] !== 0) {
-        input.value = arr[i][j];
+      input.value = array[i][j];
+      if (array[i][j] !== 0) {
+        input.value = array[i][j];
       } else {
         input.value = "";
       }
