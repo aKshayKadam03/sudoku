@@ -93,6 +93,12 @@ button {
   color: white;
   border: none;
 }
+button:hover {
+  transform: scale(1.1);
+}
+button:active {
+  transform: translateY(1px);
+}
 
 .submitButton {
   background-color: green;
